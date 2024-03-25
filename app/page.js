@@ -7,10 +7,10 @@ import CompletedAll from '@/components/CompletedAll';
 import { useState } from 'react';
 
 export default function Home() {
-  const [startDayCompleted, setStartDayCompleted] = useState(true);
+  const [startDayCompleted, setStartDayCompleted] = useState(false);
   const [selectedTransaction, setSelectedTransaction] = useState(null);
-  const [dayCompleted, setDayCompleted] = useState(true);
-  const [endDayCompleted, setEndDayCompleted] = useState(true);
+  const [dayCompleted, setDayCompleted] = useState(false);
+  const [endDayCompleted, setEndDayCompleted] = useState(false);
 
   const handleTransactionClick = (transactionName) => {
     if (selectedTransaction === transactionName) {
