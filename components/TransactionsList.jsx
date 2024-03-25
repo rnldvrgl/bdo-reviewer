@@ -108,7 +108,7 @@ const TransactionsList = ({ handleTransactionClick, setDayCompleted }) => {
 									{transaction.name}
 								</Button>
 							</AlertDialogTrigger>
-							<AlertDialogContent>
+							<AlertDialogContent className="border-0 bg-slate-400">
 								{transaction.content}
 								{completeTranscation &&
 									<AlertDialogCancel className="text-white border-0 bg-lime-600 hover:bg-lime-800 hover:text-white" onClick={() => setCompleteTransaction(false)}>
