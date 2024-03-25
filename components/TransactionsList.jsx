@@ -64,7 +64,7 @@ const TransactionsList = ({ handleTransactionClick, setDayCompleted }) => {
 
 	return (
 		<>
-			<h1 className="mb-5 text-3xl font-bold text-center">Select Transaction</h1>
+			<h1 className="mb-6 text-2xl font-bold text-center">Select Transaction</h1>
 			{transactions.map((transaction, index) => (
 				<div key={index} className="flex flex-col mb-4 gap-y-4 ">
 					{transaction.options ? (
@@ -94,7 +94,7 @@ const TransactionsList = ({ handleTransactionClick, setDayCompleted }) => {
 									</AlertDialog>
 								))}
 
-								<AlertDialogCancel className="bg-red-400 hover:bg-red-500 hover:text-white">
+								<AlertDialogCancel className="bg-red-500 hover:bg-red-400 hover:text-white">
 									Close
 								</AlertDialogCancel>
 
@@ -123,7 +123,7 @@ const TransactionsList = ({ handleTransactionClick, setDayCompleted }) => {
 
 			<Button
 				variant="destructive"
-				className="w-full mt-6"
+				className="w-full mt-8"
 				onClick={() => setDayCompleted(true)}
 			>
 				End Day

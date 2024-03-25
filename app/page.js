@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-center h-[90vh]">
-      <div className="p-8 bg-gray-500 rounded-lg shadow-md">
+      <div className="p-8 mx-2 bg-gray-500 rounded-lg">
         {startDayCompleted ? (
           dayCompleted ? (
             endDayCompleted ? (

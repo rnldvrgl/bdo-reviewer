@@ -87,8 +87,8 @@ const EndDayBalancing = ({ setEndDayCompleted }) => {
 
 	return (
 		<>
-			<div className='absolute left-0 right-0 flex flex-col items-center px-8 py-4 text-xs bg-gray-500 top-4'>
-				<h1 className='w-full mb-3 text-base font-bold'>NOTES:</h1>
+			<div className='absolute left-0 right-0 flex flex-col items-center px-8 py-3 text-xs bg-gray-500 top-3'>
+				<h1 className='w-full mb-3 text-sm font-bold'>NOTES:</h1>
 				<ul className='flex flex-col list-disc gap-y-2' >
 					<li>CASH TRANSFERS - forms to use CTS (Cash Transfer Slip).</li>
 					<li>1 CTS for FCDU. 1 CTS for FOREX.</li>
@@ -97,10 +97,10 @@ const EndDayBalancing = ({ setEndDayCompleted }) => {
 					</li>
 				</ul>
 			</div>
-			<div className="container relative p-4 mx-auto">
+			<div className="container relative p-3 mx-auto">
 				{!start && (
 					<div className="flex flex-col text-center gap-y-8">
-						<h1 className="text-2xl font-bold">END OF DAY BALANCING</h1>
+						<h1 className="text-xl font-bold">END OF DAY BALANCING</h1>
 						<p className='mb-4'>
 							Before you go home, make sure to balance your transactions.
 						</p>

@@ -79,14 +79,15 @@ const StartDay = ({ setStartDayCompleted }) => {
 			{!start && (
 				<div className="flex flex-col text-center gap-y-8">
 					<h1 className="text-2xl font-bold">WELCOME TO YOUR BDO REVIEWER</h1>
-					<p className='mb-4'>Always greet your client with a smile </p>
+					<p className='mb-4'>Don&apos;t forget to always greet your client with a smile</p>
 					<Button onClick={() => setStart(true)}>Start your Day</Button>
 				</div>
 			)}
 
 			{start && (
 				<div className='flex flex-col text-center gap-y-6'>
-					<h1 className="mb-4 text-2xl font-bold">START YOUR DAY:</h1>
+					<h1 className="text-2xl font-bold">START YOUR DAY:</h1>
+					<p className='mb-4'>Before starting your day, you have three tasks to complete.</p>
 					{transactions.map((transaction, index) => (
 						<AlertDialog key={index}>
 							<AlertDialogTrigger asChild>
