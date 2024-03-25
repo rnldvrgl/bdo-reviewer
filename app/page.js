@@ -3,29 +3,30 @@
 import EndDayBalancing from '@/components/EndDayBalancing';
 import StartDay from '@/components/StartDay';
 import TransactionsList from '@/components/TransactionsList';
+import CompletedAll from '@/components/CompletedAll';
 import { useState } from 'react';
 
 export default function Home() {
   const [startDayCompleted, setStartDayCompleted] = useState(true);
   const [selectedTransaction, setSelectedTransaction] = useState(null);
-  const [dayCompleted, setDayCompleted] = useState(false);
-  const [endDayCompleted, setEndDayCompleted] = useState(false);
+  const [dayCompleted, setDayCompleted] = useState(true);
+  const [endDayCompleted, setEndDayCompleted] = useState(true);
 
   const handleTransactionClick = (transactionName) => {
     if (selectedTransaction === transactionName) {
-      setSelectedTransaction(null); // Deselect if already selected
+      setSelectedTransaction(null);
     } else {
       setSelectedTransaction(transactionName);
     }
   };
 
   return (
-    <main className="flex flex-col items-center justify-center h-screen">
+    <main className="flex flex-col items-center justify-center h-[90vh]">
       <div className="p-8 bg-gray-100 rounded-lg shadow-md">
         {startDayCompleted ? (
           dayCompleted ? (
             endDayCompleted ? (
-              <div>End of day completed.</div>
+              <CompletedAll setDayCompleted={setDayCompleted} setEndDayCompleted={setEndDayCompleted} setStartDayCompleted={setStartDayCompleted} setSelectedTransaction={setSelectedTransaction} />
             ) : (
               <EndDayBalancing setEndDayCompleted={setEndDayCompleted} />
             )

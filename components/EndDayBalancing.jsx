@@ -6,21 +6,21 @@ import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogTrigger 
 const EndDayBalancing = ({ setEndDayCompleted }) => {
 	const [start, setStart] = useState(false);
 	const [completeTransaction, setCompleteTransaction] = useState({
-		FCDUValidation: false,
-		FOREXValidation: false,
-		PesoTransfer: false,
-		PICOS: false
+		'FCDUValidation': false,
+		'FOREXValidation': false,
+		'PesoTransfer': false,
+		'PICOS': false
 	});
 
 	const mainSteps = {
-		FCDUValidation: [
+		"FCDUValidation": [
 			"Prepare CTS. Write Branch code (00066), Date. Teller Ball or IO Ball & CSA Signature.",
 			"Write the word FCDU on the CTS.",
 			"List the serial number per denomination.",
 			"In T4S. Validate CTS (WHITE COPY only) to CONTROL -> FINANCIAL -> CASH TRANSFER OUT.",
 			"Click F9 to change the currency to US DOLLAR."
 		],
-		FOREXValidation: [
+		"FOREXValidation": [
 			"Prepare CTS. Write Branch code (00066). Date, Teller Ball or ID Ball & CSA Signature.",
 			"Write the word FOREX on the CTS.",
 			"List the serial number per denomination.",
@@ -28,12 +28,12 @@ const EndDayBalancing = ({ setEndDayCompleted }) => {
 			"Click F9 to change the currency to US DOLLAR FOREX.",
 			"DO NOT CHANGE RATE."
 		],
-		PesoTransfer: [
+		"PesoTransfer": [
 			"Prepare CTS. Write Branch code (00066). Date, Teller Ball or ID Ball & CSA Signature.",
 			"In T4S, Validate CTS (WHITE COPY only) to CONTROL > FINANCIAL > CASH TRANSFER OUT.",
 			"Give ALL CASH (Dollars peso Big Bills & Other Currencies) with CTS to SO and ask to SO sign on the received by portion."
 		],
-		PICOS: [
+		"PICOS": [
 			"In T4S. Go to CONTROL > BALANCING > CASH BALANCE COMPARE. Click Display. Press F9.",
 			"Count cash and input in the number column per denomination. Click 0k. Then Click display.",
 			"Prepare 2 sets of CTS (CTS 1 & CTS 2). Copy the breakdown from Cash Balance Compare on the two sets of CTS.",
@@ -46,51 +46,50 @@ const EndDayBalancing = ({ setEndDayCompleted }) => {
 
 	const transactions = [
 		{
-			name: "FCDU Validation",
+			name: "FCDUValidation",
+			label: "FCDU Validation",
 			steps: mainSteps.FCDUValidation
 		},
 		{
-			name: "FOREX Validation",
+			name: "FOREXValidation",
+			label: "FOREX Validation",
 			steps: mainSteps.FOREXValidation
 		},
 		{
-			name: "Peso Transfer",
+			name: "PesoTransfer",
+			label: "Peso Transfer",
 			steps: mainSteps.PesoTransfer
 		},
 		{
 			name: "PICOS",
+			label: "PICOS",
 			steps: mainSteps.PICOS
 		}
 	];
 
 	const handleTransactionComplete = (transactionName) => {
-		// Trim any extra spaces or characters from transactionName
-		const trimmedTransactionName = transactionName.trim();
-
-		setCompleteTransaction(prevState => ({
-			...prevState,
-			[trimmedTransactionName]: true
-		}));
+		const transaction = transactions.find(t => t.name === transactionName);
+		if (transaction) {
+			setCompleteTransaction(prevState => ({
+				...prevState,
+				[transaction.name]: true
+			}));
+		}
 	};
 
-
-	// Check if all transactions are completed
 	const allTransactionsCompleted = () => {
 		return Object.values(completeTransaction).every(transaction => transaction);
 	};
 
-	// Call the parent component's callback function to notify when all steps are completed
 	if (allTransactionsCompleted()) {
 		setEndDayCompleted(true);
 	}
 
-	console.log(completeTransaction)
-
 	return (
 		<>
-			<div className='absolute inset-0 flex flex-col w-full text-xs text-center top-4'>
-				<h1 className='mb-3 font-bold'>NOTES:</h1>
-				<ul className='flex flex-col gap-y-2'>
+			<div className='absolute flex flex-col items-center px-4 py-2 text-xs top-4'>
+				<h1 className='w-full mb-3 text-base font-bold'>NOTES:</h1>
+				<ul className='flex flex-col list-disc gap-y-2' >
 					<li>CASH TRANSFERS - forms to use CTS (Cash Transfer Slip).</li>
 					<li>1 CTS for FCDU. 1 CTS for FOREX.</li>
 					<li>
@@ -114,8 +113,8 @@ const EndDayBalancing = ({ setEndDayCompleted }) => {
 						<h1 className="mb-4 text-2xl font-bold">END DAY BALANCING:</h1>
 						{transactions.map((transaction, index) => (
 							<AlertDialog key={index}>
-								<AlertDialogTrigger asChild >
-									<Button disabled={completeTransaction[transaction.name]}>{transaction.name}</Button>
+								<AlertDialogTrigger asChild>
+									<Button disabled={completeTransaction[transaction.name]}>{transaction.label}</Button>
 								</AlertDialogTrigger>
 								<AlertDialogContent>
 									<StepProcess
@@ -124,7 +123,7 @@ const EndDayBalancing = ({ setEndDayCompleted }) => {
 									/>
 									{completeTransaction[transaction.name] && (
 										<AlertDialogCancel className="text-white bg-lime-600 hover:bg-lime-800 hover:text-white" onClick={() => handleTransactionComplete(transaction.name)}>
-											DONE WITH {transaction.name}
+											DONE WITH {transaction.label}
 										</AlertDialogCancel>
 									)}
 								</AlertDialogContent>
