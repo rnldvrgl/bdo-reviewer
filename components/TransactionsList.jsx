@@ -83,10 +83,10 @@ const TransactionsList = ({ handleTransactionClick, setDayCompleted }) => {
 												{option.name}
 											</Button>
 										</AlertDialogTrigger>
-										<AlertDialogContent>
+										<AlertDialogContent className="border-0 bg-slate-400">
 											{option.content}
 											{completeTranscation &&
-												<AlertDialogCancel className="text-white bg-lime-600 hover:bg-lime-800 hover:text-white" onClick={() => setCompleteTransaction(false)}>
+												<AlertDialogCancel className="text-white border-0 bg-lime-600 hover:bg-lime-800 hover:text-white" onClick={() => setCompleteTransaction(false)}>
 													COMPLETE TRANSACTION
 												</AlertDialogCancel>
 											}
@@ -94,7 +94,7 @@ const TransactionsList = ({ handleTransactionClick, setDayCompleted }) => {
 									</AlertDialog>
 								))}
 
-								<AlertDialogCancel>
+								<AlertDialogCancel className="bg-red-400 hover:bg-red-500 hover:text-white">
 									Close
 								</AlertDialogCancel>
 
@@ -111,7 +111,7 @@ const TransactionsList = ({ handleTransactionClick, setDayCompleted }) => {
 							<AlertDialogContent>
 								{transaction.content}
 								{completeTranscation &&
-									<AlertDialogCancel className="text-white bg-lime-600 hover:bg-lime-800 hover:text-white" onClick={() => setCompleteTransaction(false)}>
+									<AlertDialogCancel className="text-white border-0 bg-lime-600 hover:bg-lime-800 hover:text-white" onClick={() => setCompleteTransaction(false)}>
 										COMPLETE TRANSACTION
 									</AlertDialogCancel>
 								}

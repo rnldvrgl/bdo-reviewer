@@ -87,7 +87,7 @@ const EndDayBalancing = ({ setEndDayCompleted }) => {
 
 	return (
 		<>
-			<div className='absolute flex flex-col items-center px-4 py-2 text-xs top-4'>
+			<div className='absolute left-0 right-0 flex flex-col items-center px-8 py-4 text-xs bg-gray-500 top-4'>
 				<h1 className='w-full mb-3 text-base font-bold'>NOTES:</h1>
 				<ul className='flex flex-col list-disc gap-y-2' >
 					<li>CASH TRANSFERS - forms to use CTS (Cash Transfer Slip).</li>
@@ -116,13 +116,13 @@ const EndDayBalancing = ({ setEndDayCompleted }) => {
 								<AlertDialogTrigger asChild>
 									<Button disabled={completeTransaction[transaction.name]}>{transaction.label}</Button>
 								</AlertDialogTrigger>
-								<AlertDialogContent>
+								<AlertDialogContent className="border-0 bg-slate-400">
 									<StepProcess
 										steps={transaction.steps}
 										setCompleteTransaction={() => handleTransactionComplete(transaction.name)}
 									/>
 									{completeTransaction[transaction.name] && (
-										<AlertDialogCancel className="text-white bg-lime-600 hover:bg-lime-800 hover:text-white" onClick={() => handleTransactionComplete(transaction.name)}>
+										<AlertDialogCancel className="text-white border-0 bg-lime-600 hover:bg-lime-800 hover:text-white" onClick={() => handleTransactionComplete(transaction.name)}>
 											DONE WITH {transaction.label}
 										</AlertDialogCancel>
 									)}

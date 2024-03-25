@@ -25,9 +25,9 @@ const StepProcess = ({ steps, setCompleteTransaction }) => {
 
 	return (
 		<div className="container p-4 mx-auto">
-			<div className='flex flex-col items-center justify-center text-center gap-y-6'>
+			<div className='flex flex-col items-center justify-center text-center gap-y-6 bg'>
 				<Progress value={(currentStep / (steps.length - 1)) * 100} />
-				<h1 className="text-lg font-bold">
+				<h1 className="text-lg font-semibold">
 					{steps[currentStep]}
 				</h1>
 				{currentStep < steps.length - 1 && (

@@ -92,13 +92,13 @@ const StartDay = ({ setStartDayCompleted }) => {
 							<AlertDialogTrigger asChild>
 								<Button disabled={completeTransaction[transaction.name]}>{transaction.label}</Button>
 							</AlertDialogTrigger>
-							<AlertDialogContent>
+							<AlertDialogContent className="border-0 bg-slate-400">
 								<StepProcess
 									steps={transaction.steps}
 									setCompleteTransaction={() => handleTransactionComplete(transaction.name)}
 								/>
 								{completeTransaction[transaction.name] && (
-									<AlertDialogCancel className="text-white bg-lime-600 hover:bg-lime-800 hover:text-white" onClick={() => handleTransactionComplete(transaction.name)}>
+									<AlertDialogCancel className="text-white border-0 bg-lime-600 hover:bg-lime-800 hover:text-white" onClick={() => handleTransactionComplete(transaction.name)}>
 										DONE WITH {transaction.label}
 									</AlertDialogCancel>
 								)}
