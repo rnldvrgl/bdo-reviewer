@@ -6,7 +6,7 @@ import { FaLongArrowAltRight, FaLongArrowAltLeft } from "react-icons/fa";
 import { Progress } from './ui/progress';
 import { cn } from '@/lib/utils';
 
-const StepProcess = ({ steps, setCompleteTransaction }) => {
+const StepProcess = ({ title, steps, setCompleteTransaction }) => {
 	const [currentStep, setCurrentStep] = useState(0);
 
 	const handlePreviousStep = () => {
@@ -26,6 +26,7 @@ const StepProcess = ({ steps, setCompleteTransaction }) => {
 	return (
 		<div className="container p-4 mx-auto">
 			<div className='flex flex-col items-center justify-center text-center gap-y-6 bg'>
+				{title && (<h1 className="text-xl font-bold">{title}</h1>)}
 				<Progress value={(currentStep / (steps.length - 1)) * 100} />
 				<h1 className="text-lg font-semibold">
 					{steps[currentStep]}

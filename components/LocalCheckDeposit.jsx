@@ -25,7 +25,7 @@ const LocalCheckDeposit = ({ setCompleteTransaction }) => {
 		"Say 'Thank you Sir/Ma'am.'"
 	];
 
-	return <StepProcess steps={steps} setCompleteTransaction={setCompleteTransaction} />;
+	return <StepProcess title="Check Deposit (LOCAL)" steps={steps} setCompleteTransaction={setCompleteTransaction} />;
 };
 
 export default LocalCheckDeposit;

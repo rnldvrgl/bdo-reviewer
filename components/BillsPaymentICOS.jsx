@@ -32,7 +32,7 @@ const BillsPaymentICOS = ({ setCompleteTransaction }) => {
 		"Seek SO approval."
 	];
 
-	return <StepProcess steps={steps} setCompleteTransaction={setCompleteTransaction} />;
+	return <StepProcess title="Bills Payment (ICOS)" steps={steps} setCompleteTransaction={setCompleteTransaction} />;
 }
 
 export default BillsPaymentICOS

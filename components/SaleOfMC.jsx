@@ -31,7 +31,7 @@ const SaleOfMC = ({ setCompleteTransaction }) => {
 	];
 
 
-	return <StepProcess steps={steps} setCompleteTransaction={setCompleteTransaction} />;
+	return <StepProcess title="Sale of MC" steps={steps} setCompleteTransaction={setCompleteTransaction} />;
 }
 
 export default SaleOfMC

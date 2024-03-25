@@ -20,7 +20,7 @@ const CashDepositSameBranchCodeDollar = ({ setCompleteTransaction }) => {
 		"Say 'Thank you, Sir/Ma'am.'"
 	];
 
-	return <StepProcess steps={steps} setCompleteTransaction={setCompleteTransaction} />;
+	return <StepProcess title="Cash Deposit - Same Branch Code (DOLLAR)" steps={steps} setCompleteTransaction={setCompleteTransaction} />;
 };
 
 export default CashDepositSameBranchCodeDollar;

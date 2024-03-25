@@ -21,7 +21,7 @@ const Withdrawal = ({ setCompleteTransaction }) => {
 		"Count the money to client and return passbook.",
 		"Say 'Thank you Sir/Ma'am.'"
 	];
-	return <StepProcess steps={steps} setCompleteTransaction={setCompleteTransaction} />;
+	return <StepProcess title="Withdrawal" steps={steps} setCompleteTransaction={setCompleteTransaction} />;
 }
 
 export default Withdrawal

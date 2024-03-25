@@ -29,7 +29,7 @@ const CashDepositInterRegionalPeso = ({ setCompleteTransaction }) => {
 		"Set aside Cash Transaction slip."
 	];
 
-	return <StepProcess steps={steps} setCompleteTransaction={setCompleteTransaction} />;
+	return <StepProcess title="Cash Deposit - Inter Regional (PESO)" steps={steps} setCompleteTransaction={setCompleteTransaction} />;
 }
 
 export default CashDepositInterRegionalPeso;

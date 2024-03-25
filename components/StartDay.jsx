@@ -95,6 +95,7 @@ const StartDay = ({ setStartDayCompleted }) => {
 							</AlertDialogTrigger>
 							<AlertDialogContent className="border-0 bg-slate-400">
 								<StepProcess
+									title={transaction.label}
 									steps={transaction.steps}
 									setCompleteTransaction={() => handleTransactionComplete(transaction.name)}
 								/>
